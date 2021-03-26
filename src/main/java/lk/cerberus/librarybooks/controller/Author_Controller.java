@@ -34,12 +34,12 @@ public class Author_Controller {
     }
 
     @PutMapping(path = "/{id}")
-    public void updateAuthor(@PathVariable(value = "id") String id, @RequestBody Author author){
-        authorService.updateAuthor(id,author);
+    public void updateAuthor(@PathVariable(value = "id") String id, @RequestBody Author author) {
+        authorService.updateAuthor(id, author);
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deleteAuthor(String id){
+    public void deleteAuthor(String id) {
         authorService.deleteAuthor(id);
     }
 }

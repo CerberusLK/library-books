@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Book {
 
     @Id
-    @Column(length = 13,unique = true, nullable = false)
+    @Column(length = 13, unique = true, nullable = false)
     private String ISBN;
 
     @Column(name = "Book_Title")

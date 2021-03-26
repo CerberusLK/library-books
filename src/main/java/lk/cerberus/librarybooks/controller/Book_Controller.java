@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class Book_Controller {
 
     @Autowired
@@ -34,12 +34,18 @@ public class Book_Controller {
     }
 
     @PutMapping(path = "/{isbn}")
-    public void updateBook(@PathVariable(value = "isbn") String isbn, @RequestBody Book book){
-        bookService.updateBook(isbn,book);
+    public void updateBook(@PathVariable(value = "isbn") String isbn, @RequestBody Book book) {
+        bookService.updateBook(isbn, book);
     }
 
     @DeleteMapping(path = "/{isbn}")
-    public void deleteBook(String isbn){
+    public void deleteBook(String isbn) {
         bookService.deleteBook(isbn);
     }
+
+    @RequestMapping(path = "/search/{bookTitle}")
+    public List<Book> getBookByTitle(@PathVariable(value = "bookTitle") String bookTitle){
+        return bookService.getBookByTitle(bookTitle);
+    }
+
 }
