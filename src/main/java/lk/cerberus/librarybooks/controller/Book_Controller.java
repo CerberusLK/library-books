@@ -43,9 +43,19 @@ public class Book_Controller {
         bookService.deleteBook(isbn);
     }
 
-    @RequestMapping(path = "/search/{bookTitle}")
+    @RequestMapping(path = "/search/title{bookTitle}", method = RequestMethod.GET)
     public List<Book> getBookByTitle(@PathVariable(value = "bookTitle") String bookTitle){
         return bookService.getBookByTitle(bookTitle);
+    }
+
+    @RequestMapping(path = "/search/author{authorName}", method = RequestMethod.GET)
+    public List<Book> getBookByAuthorName(@PathVariable(value = "authorName") String bookAuthor){
+        return bookService.getBooksByAuthor(bookAuthor);
+    }
+
+    @RequestMapping(path = "/search/category{bookCategory}", method = RequestMethod.GET)
+    public List<Book> getBookByCategory(@PathVariable(value = "bookCategory") String bookCategory){
+        return bookService.getBookByCategory(bookCategory);
     }
 
 }
